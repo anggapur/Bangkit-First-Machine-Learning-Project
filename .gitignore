@@ -120,6 +120,6 @@ env.bak/
 venv.bak/
 pip-selfcheck.json
 .idea/
-saved_model/*
+
 
 # End of https://www.gitignore.io/api/python,virtualenv
