@@ -54,4 +54,6 @@ X,y = create_dataset([gender, age, estimated_salary],labels)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
 
 
-
+"""
+Training Model
+"""
