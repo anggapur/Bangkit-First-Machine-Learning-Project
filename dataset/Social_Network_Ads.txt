@@ -1,0 +1,26 @@
+Dataset Name
+- Socia_Network_Ads
+
+Source
+https://www.kaggle.com/rakeshrau/social-network-ads
+
+Dataset Owner
+Rakesh Raushan
+
+Version
+Version 1
+
+Dataset Date
+2017-08-06
+
+About this Dataset
+CSV file which tells which of the users purchased/not purchased a particular product
+
+Columns
+- User ID : Unique ID
+- Gender : Male/Female
+- Age : 18-60
+- EstimatedSalary : 15000-150000
+- Purchased : 0/1
+
+Total Rows : 400
