@@ -1,11 +1,11 @@
 from module.data_processing import *
-
-
+import datetime
+import os
 """
 Created at : 28/03/2020
-Created by : Angga Pur
+Created by : Angga Pur, Henrico Aldy Ferdian, & Juli Andika
 Description : 
-Process from get data, splitting data, feature scaling , training , evaluate
+Process from get data, splitting data, feature scaling , training , evaluate, and logging
 You can choose to using 1.A or 1.B
 1.A => NOT convert numerical feature to categorical feature, creating dataset wiith dimension 400 x 152
 1.B => convert  numerical feature to categorical feature, creating dataset wiith dimension 400 x 15
@@ -80,16 +80,28 @@ hidden layer (1) : 15 node
 hidden layer (2) : 10 node
 output layer : adjust based on how many label the dataset have  
 """
+
+
 input_layer = Input(shape=(X.shape[1],))
 dense_layer_1 = Dense(15, activation='relu')(input_layer)
 dense_layer_2 = Dense(10, activation='relu')(dense_layer_1)
-output = Dense(y.shape[1], activation='softmax')(dense_layer_2)
+dense_layer_3 = Dense(10, activation='relu')(dense_layer_2)
+dense_layer_4 = Dense(10, activation='relu')(dense_layer_3)
+dense_layer_5 = Dense(10, activation='relu')(dense_layer_4)
+dense_layer_6 = Dense(10, activation='relu')(dense_layer_5)
+dense_layer_7 = Dense(10, activation='relu')(dense_layer_6)
+dense_layer_8 = Dense(10, activation='relu')(dense_layer_7)
+dense_layer_9 = Dense(10, activation='relu')(dense_layer_8)
+dense_layer_10 = Dense(10, activation='relu')(dense_layer_9)
+output = Dense(y.shape[1], activation='softmax')(dense_layer_10)
 
 model = Model(inputs=input_layer, outputs=output)
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
 print(model.summary())
+log_dir= os.path.join('logs','fit',datetime.datetime.now().strftime("%Y%m%d-%H%M%S"),'')
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 
-history = model.fit(X_train, y_train, batch_size=10, epochs=50, verbose=1, validation_split=0.2)
+history = model.fit(X_train, y_train, batch_size=10, epochs=50, verbose=1, validation_split=0.2, callbacks=[tensorboard_callback])
 
 # Save the model
 model.save('saved_model/model.h5')

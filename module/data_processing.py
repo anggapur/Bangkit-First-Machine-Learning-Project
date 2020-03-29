@@ -16,6 +16,7 @@ def check_version_tensorflow():
 def extract_data(csv_url,columns_name,header=0):
   cols = columns_name
   cars = pd.read_csv(r''+csv_url, names=cols, header=header).iloc[:, 1:]
+  print(cars.head())
   return cars
 
 def create_dataset(data,labels):
