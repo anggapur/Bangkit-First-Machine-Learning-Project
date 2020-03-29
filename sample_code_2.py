@@ -5,7 +5,7 @@ from tensorflow.keras import layers
 
 """
 Created at : 28/03/2020
-Created by : Angga Pur
+Created by : Angga Pur, Henrico Aldy Ferdian, & Juli Andika
 Description : 
 Using the saved model to predict data
 """
